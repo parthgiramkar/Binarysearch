@@ -48,7 +48,7 @@ void levelwisetraversal(binarysearch *root) {
                 q.push(NULL);
             }
         }else {
-            cout << temp -> data;
+            cout << temp -> data<<" ";
             if(temp ->left) {
                 q.push(temp ->left);
             }
@@ -57,7 +57,30 @@ void levelwisetraversal(binarysearch *root) {
             }
         }
     }
-    
+}
+void inordertraversal(binarysearch *root) {
+    if(root==NULL) {
+        return ;
+    }
+    inordertraversal(root->left);
+    cout<<root->data<<" ";
+    inordertraversal(root->right);
+}
+void preordertraversal(binarysearch *root) {
+    if(root==NULL){
+        return ;
+    }
+    cout<<root->data<<" ";
+    preordertraversal(root->left);
+    preordertraversal(root->right);
+}
+void postordertraversal(binarysearch *root) {
+    if(root==NULL){
+        return ;
+    }
+    postordertraversal(root->left);
+    postordertraversal(root->right);
+    cout<<root->data<<" ";
 }
 
 int main() {
@@ -68,4 +91,18 @@ int main() {
     cout<<"Printing the level wise traversal output - "<<endl;
     levelwisetraversal(root); 
     
+    cout<<"The inorder traversal - "<<endl;
+    inordertraversal(root);
+    cout<<endl;
+    
+    cout<<"The preorder traversal - "<<endl;
+    preordertraversal(root);
+    cout<<endl;
+    
+    cout<<"The postorder traversal - "<<endl;
+    postordertraversal(root);
+    cout<<endl;
+    
 }
+
+
